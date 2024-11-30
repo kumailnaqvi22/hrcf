@@ -9,6 +9,7 @@ const CouponSchema = new mongoose.Schema({
   expiryDate: { type: Date }, // Expiry date for the coupon
   terms: { type: String }, // Terms and conditions for the coupon
   isFeatured: { type: Boolean, default: false }, // Highlight popular coupons
+  
   isVerified: { type: Boolean, default: false }, // Whether the coupon is verified
   createdAt: { type: Date, default: Date.now }, // Creation date
   lastUsedAt: { type: Date }, // Last usage date
@@ -56,6 +57,8 @@ const StoreSchema = new mongoose.Schema({
   freeShipping: { type: Boolean, default: false }, // Free shipping availability
   memberDiscount: { type: Boolean, default: false }, // Member discount availability
   militaryDiscount: { type: Boolean, default: false }, // Military discount availability
+  isTrending: { type: Boolean, default: false },
+
 });
 
 module.exports = mongoose.model('Store', StoreSchema);

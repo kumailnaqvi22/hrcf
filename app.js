@@ -16,19 +16,19 @@ const storeRoutes = require('./routes/storeRoutes');
 const couponRoutes = require('./routes/couponRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 
-
 // Connect to the database
 connectDB();
 
 const app = express();
 
-// Enable CORS for frontend
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL, // Dynamic based on environment
-    credentials: true,
-  })
-);
+// Configure CORS to allow requests from the frontend
+const corsOptions = {
+  origin: 'https://coupenworth-frontend.vercel.app', // The domain of your frontend
+  methods: 'GET, POST', // Add other methods if needed
+  allowedHeaders: 'Content-Type, Authorization', // Customize as needed
+};
+
+app.use(cors(corsOptions)); // Enable CORS with the specified options
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -63,11 +63,11 @@ app.use(errorHandler);
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
 // });
+
 // At the end of your routes in app.js
 app.get('/', (req, res) => {
   res.status(200).send('Welcome to CouponWorth Backend');
 });
-
 
 // Create an HTTP server instance
 const server = http.createServer(app);

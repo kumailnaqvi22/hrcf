@@ -65,6 +65,7 @@ const createStore = async (req, res) => {
       coupons,
       featuredCoupons,
       recommendedCoupons,
+      isTrending, // Add isTrending here
     } = req.body;
 
     if (!name || !url) {
@@ -97,8 +98,8 @@ const createStore = async (req, res) => {
       bestDiscount,
       totalDeals,
       history,
-      promotionalInfo, // Add this
-      pointsToKnow, // Add this
+      promotionalInfo,
+      pointsToKnow,
       freeShipping,
       memberDiscount,
       militaryDiscount,
@@ -108,6 +109,7 @@ const createStore = async (req, res) => {
       coupons,
       featuredCoupons,
       recommendedCoupons,
+      isTrending, // Add isTrending to the new store object
     });
 
     await newStore.save();
@@ -202,9 +204,9 @@ const updateStore = async (req, res) => {
       coupons,
       featuredCoupons,
       recommendedCoupons,
+      isTrending, // Add isTrending here
     } = req.body;
 
-    // Find and update the store by ID
     const updatedStore = await Store.findByIdAndUpdate(
       req.params.id,
       {
@@ -237,8 +239,9 @@ const updateStore = async (req, res) => {
         coupons,
         featuredCoupons,
         recommendedCoupons,
+        isTrending, // Include isTrending in the update
       },
-      { new: true, runValidators: true } // Ensure validations run
+      { new: true, runValidators: true }
     );
 
     if (!updatedStore) {
