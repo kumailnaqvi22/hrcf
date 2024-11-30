@@ -59,10 +59,15 @@ app.use(notFound);
 app.use(errorHandler);
 
 // Serve the frontend app for non-API routes
-app.use(express.static(path.join(__dirname, 'frontend', 'build')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+// app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+// });
+// At the end of your routes in app.js
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to CouponWorth Backend');
 });
+
 
 // Create an HTTP server instance
 const server = http.createServer(app);
