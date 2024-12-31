@@ -1,38 +1,43 @@
-// C:\Users\hasnain haider shah\OneDrive\Desktop\learn1\backend\models\User.js
-const mongoose = require('mongoose');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/sequelize');
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  isAdmin: {
-    type: Boolean,
-    default: false
-  },
-  verified: {
-    type: Boolean,
-    default: false
-  },
-  otp: {
-    type: String,
-  },
-  otpExpiration: {
-    type: Date
-  },
+// Define the User model
+const User = sequelize.define('User', {
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    isAdmin: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    },
+    verified: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    },
+    otp: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    otpExpiration: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    },
+    isMember: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false, 
+    },
 }, {
-  timestamps: true
+    timestamps: false,
 });
-
-const User = mongoose.model('User', userSchema);
 
 module.exports = User;

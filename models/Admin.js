@@ -1,4 +1,3 @@
-// C:\Users\hasnain haider shah\Desktop\learn1\backend\models\Admin.js
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');

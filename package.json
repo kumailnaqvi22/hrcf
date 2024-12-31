@@ -1,7 +1,7 @@
 {
-  "name": "couponsworth-backend",
+  "name": "donations",
   "version": "1.0.0",
-  "description": "Backend for CouponsWorth",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -15,17 +15,22 @@
     "body-parser": "^1.20.2",
     "config": "^3.3.11",
     "cors": "^2.8.5",
+    "donations": "file:",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
     "express-validator": "^7.1.0",
     "googleapis": "^140.0.1",
     "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "mongodb": "^6.9.0",
     "mongoose": "^8.4.0",
     "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.5",
     "nodemailer": "^6.9.13",
     "paypal-rest-sdk": "^1.8.1",
+    "sequelize": "^6.37.5",
     "ws": "^8.18.0"
   }
 }

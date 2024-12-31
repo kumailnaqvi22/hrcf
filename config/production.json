@@ -1,4 +1,0 @@
-{
-    "dbURI": "mongodb://username:password@your-production-hostname:27017/your-database-name"
-  }
-  

@@ -1,22 +1,34 @@
-const mongoose = require('mongoose');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/sequelize');
 
-const ContactMessageSchema = new mongoose.Schema({
+const ContactMessage = sequelize.define('ContactMessage', {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+    },
     name: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     email: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     message: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    mobileNumber: {
+        type: DataTypes.STRING,
+        allowNull: true,
     },
     date: {
-        type: Date,
-        default: Date.now
-    }
+        type: DataTypes.DATE,
+        allowNull: true,
+    },
+}, {
+    timestamps: false, // Disable createdAt and updatedAt
 });
 
-module.exports = mongoose.model('ContactMessage', ContactMessageSchema);
+module.exports = ContactMessage;
